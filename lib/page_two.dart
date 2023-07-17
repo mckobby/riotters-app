@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:riotters/search_page.dart';
+import 'package:share_plus/share_plus.dart';
 
 class PageTwo extends StatefulWidget {
   const PageTwo({super.key});
@@ -35,10 +36,10 @@ class _PageTwoState extends State<PageTwo> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
+                          const Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children: [
                               Text(
                                 'Riotters',
                                 style: TextStyle(
@@ -93,7 +94,9 @@ class _PageTwoState extends State<PageTwo> {
                                 ),
                                 child: IconButton(
                                   padding: const EdgeInsets.all(3),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    shareApp();
+                                  },
                                   icon: const Icon(
                                     Icons.share,
                                     color: Colors.blue,
@@ -809,10 +812,10 @@ class _PageTwoState extends State<PageTwo> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
+                          const Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children: [
                               Text(
                                 'Riotters',
                                 style: TextStyle(
@@ -867,7 +870,9 @@ class _PageTwoState extends State<PageTwo> {
                                 ),
                                 child: IconButton(
                                   padding: const EdgeInsets.all(3),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    shareApp();
+                                  },
                                   icon: const Icon(
                                     Icons.share,
                                     color: Colors.blue,
@@ -1569,9 +1574,12 @@ class _PageTwoState extends State<PageTwo> {
         },
       ),
       floatingActionButton: Container(
-        decoration: const BoxDecoration(shape: BoxShape.circle, boxShadow: [
-          BoxShadow(color: Colors.white, blurRadius: 4, spreadRadius: 6)
-        ]),
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(color: Colors.white, blurRadius: 4, spreadRadius: 6)
+          ],
+        ),
         child: FloatingActionButton(
           onPressed: () {},
           child: const Icon(
@@ -1601,5 +1609,12 @@ class _PageTwoState extends State<PageTwo> {
         ],
       ),
     );
+  }
+
+  void shareApp() {
+    String message =
+        'Check out Riotters, the new mobile app that keeps you entertained. Click here: https://www.linkedin.com/in/michael-kissi-013b4118a/';
+
+    Share.share(message);
   }
 }
